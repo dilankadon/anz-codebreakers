@@ -42,25 +42,6 @@ then(`Click the {string} button`, buttonName => {
   cy.get('button').contains(buttonName).click({ waitForAnimations: false, force:true})
 })
 
-then(`You should not see an information note in the {string} section`,
-  (sectionName) => {
-    let sectionMatch = sectionHelper.getSection(sectionName)
-    sectionMatch.within(() => {
-      cy.get('[data-test-id="information_box"]').should('not.be.visible')
-    })
-  })
-
-then(`You should see information note with with heading {string} and body {string} in the {string} section`,
- (heading, body, sectionName) => {
-    let sectionMatch = sectionHelper.getSection(sectionName)
-    sectionMatch.within(() => {
-      cy.get('[data-test-id="information_box_heading"]').should('have.text', heading)
-      cy.get('[data-test-id="information_box_contents"]').invoke('text').then((contents) => {
-        contents = contents.replace('\n', '')
-        expect(contents).to.eq(body)
-      })
-    })
-})
 
 then(`You should see {string} field`, (fieldName) => {
     cy.get('label').contains(fieldName).should('be.visible')
@@ -70,37 +51,6 @@ then(`You should not see {string} field`, (fieldName) => {
     cy.get('label').contains(fieldName).should('not.be.visible')
 })
 
-then(`You should see page level validation text {string}`, (pageLevelValidationText) => {
-  cy.get('[data-id="alert"] [data-test-id="message-wrapper"]').should('have.text', pageLevelValidationText)
-})
-
-then(`You should not see any page level validation`, () => {
-  cy.get('[data-id="alert"] [data-test-id="message-wrapper"]').should('not.be.visible')
-})
-
-then(`The fieldset radiobutton group {string} validation will be {string}`, (radioGroupName, validationText) => {
-  cy.get('fieldset').contains(radioGroupName).parent().within(() => {
-    cy.get('[role="alert"]').should('have.text', validationText)
-  })
-})
-
-then(`The {string} validation will be {string}`, (fieldName, validationText) => {
-  cy.get('label').contains(fieldName).parent().within(() => {
-    cy.get('[role="alert"]').should('have.text', validationText)
-  })
-})
-
-then(`The fieldset radiobutton group {string} validation will be blank`, radioGroupName => {
-  cy.get('fieldset').contains(radioGroupName).parent().within(() => {
-    cy.get('[role="alert"]').should('not.be.visible')
-  })
-})
-
-then(`The {string} validation will be blank`, fieldName => {
-  cy.get('label').contains(fieldName).parent().within(() => {
-    cy.get('[role="alert"]').should('not.be.visible')
-  })
-})
 
 then(/You should see "(\d+)" challenges? displayed/, numOfChallenges => {
   cy.get('[data-test-id$="-section"]').its('length').should('equal', numOfChallenges)
