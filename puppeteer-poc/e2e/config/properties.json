@@ -1,0 +1,17 @@
+{
+  "default": {
+    "baseUrl": "http://localhost:3000/",
+    "pageTimeout": "20000",
+    "headlessMode": false,
+    "featureFiles": "../features/**/**/*.feature",
+    "stepDefinitionsPath": "../features/support/step_definitions/**/**/*.js"
+  },
+  "docker": {
+    "baseUrl": "http://host.docker.internal:3000/",
+    "headlessMode": true
+  },
+  "sit": {
+    "baseUrl": "https://anz-bank.github.io/anz-codebreakers/",
+    "pageTimeout": "20000"
+  }
+}

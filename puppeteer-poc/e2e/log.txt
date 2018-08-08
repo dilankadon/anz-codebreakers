@@ -1,0 +1,58 @@
+[32m.[39murl: http://localhost:8080/#/lets-get-started
+[32m.[39m[32m.[39m[32m.[39m[32m.[39m[32m.[39m[32m.[39m[32m.[39m[31mF[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[36m-[39m[32m.[39m
+
+Failures:
+
+1) Scenario: Basic E2E Smoke Test for BOX # [90mfeatures/smoke.feature:5[39m
+   [32m✔ Before[39m # [90mfeatures/support/hooks.js:14[39m
+   [32m✔ Given I land on the home page[39m # [90mfeatures/support/step_definitions/login_steps.js:13[39m
+   [32m✔ When You should eventually see heading "Before you start"[39m # [90mfeatures/support/step_definitions/navigation_steps.js:23[39m
+   [32m✔ When Click "No" radiobutton for fieldset group "Do you currently bank with ANZ?"[39m # [90mfeatures/support/step_definitions/form_steps.js:14[39m
+   [32m✔ And Click "Sole Trader" radiobutton for fieldset group "How is your business structured?"[39m # [90mfeatures/support/step_definitions/form_steps.js:14[39m
+   [32m✔ And Fill in "What industry is your business in?" input with "Plant"[39m # [90mfeatures/support/step_definitions/form_steps.js:20[39m
+   [32m✔ Then Click the "first" autocomplete selection for the "What industry is your business in?" field[39m # [90mfeatures/support/step_definitions/form_steps.js:24[39m
+   [32m✔ And Click the "Next" button[39m # [90mfeatures/support/step_definitions/form_steps.js:29[39m
+   [31m✖ Then You should eventually see heading "Find products to help you"[39m # [90mfeatures/support/step_definitions/navigation_steps.js:23[39m
+       [31mError: waiting for function failed: timeout 2000ms exceeded[39m[90m[39m
+       [90m    at Timeout.WaitTask._timeoutTimer.setTimeout (/Users/lamw2/projects/puppeteer-poc/e2e/node_modules/puppeteer/lib/FrameManager.js:841:60)[39m
+       [90m    at ontimeout (timers.js:475:11)[39m
+       [90m    at tryOnTimeout (timers.js:310:5)[39m
+       [90m    at Timer.listOnTimeout (timers.js:270:5)[39m
+   [36m- Then You should see "4" needs displayed[39m # [90mfeatures/support/step_definitions/form_steps.js:62[39m
+   [36m- And Click the button link "Find a business credit card" for need 4[39m # [90mfeatures/support/step_definitions/form_steps.js:68[39m
+   [36m- And You should be on the "pay expenses" page[39m # [90mfeatures/support/step_definitions/page_steps.js:5[39m
+   [36m- And You should eventually see heading "Stay on top of your overheads"[39m # [90mfeatures/support/step_definitions/navigation_steps.js:23[39m
+   [36m- And Click "The full closing balance as on statement" radiobutton for fieldset group "How much do you plan to repay each month?"[39m # [90mfeatures/support/step_definitions/form_steps.js:14[39m
+   [36m- And Click "Rewards for purchases" radiobutton for fieldset group "Which of these features appeals to you the most?"[39m # [90mfeatures/support/step_definitions/form_steps.js:14[39m
+   [36m- And Click "Yes" radiobutton for fieldset group "Do you require overseas travel and medical insurance?"[39m # [90mfeatures/support/step_definitions/form_steps.js:14[39m
+   [36m- And Click the "View Recommendations" button[39m # [90mfeatures/support/step_definitions/form_steps.js:29[39m
+   [36m- And You should be on the "business black" page[39m # [90mfeatures/support/step_definitions/page_steps.js:5[39m
+   [36m- And Click the "Add this product" button[39m # [90mfeatures/support/step_definitions/form_steps.js:29[39m
+   [36m- And You should be on the "money in manage money out" page[39m # [90mfeatures/support/step_definitions/page_steps.js:5[39m
+   [36m- And You should see "ANZ Business Black Credit Card" as selected product name for need 4[39m # [90mfeatures/support/step_definitions/form_steps.js:74[39m
+   [36m- And You should see "$300 /year" as the cost for selected product name for need 4[39m # [90mfeatures/support/step_definitions/form_steps.js:80[39m
+   [36m- And Click the "Review product selection" button[39m # [90mfeatures/support/step_definitions/form_steps.js:29[39m
+   [36m- And You should be on the "review package" page[39m # [90mfeatures/support/step_definitions/page_steps.js:5[39m
+   [36m- And You should eventually see heading "Review your products"[39m # [90mfeatures/support/step_definitions/navigation_steps.js:23[39m
+   [36m- And You should see "1" selected product displayed[39m # [90mfeatures/support/step_definitions/form_steps.js:87[39m
+   [36m- And You should see "ANZ Business Black Credit Card" as product name for selected product 1[39m # [90mfeatures/support/step_definitions/form_steps.js:99[39m
+   [36m- And You should see "$300 /year" as the cost for selected product 1[39m # [90mfeatures/support/step_definitions/form_steps.js:105[39m
+   [36m- And Click the "Add contact details" button[39m # [90mfeatures/support/step_definitions/form_steps.js:29[39m
+   [36m- And You should be on the "about you" page[39m # [90mfeatures/support/step_definitions/page_steps.js:5[39m
+   [36m- When Click "Ms" radiobutton for fieldset group "Title"[39m # [90mfeatures/support/step_definitions/form_steps.js:14[39m
+   [36m- And Fill in the following fields with values:[39m # [90mfeatures/support/step_definitions/form_steps.js:112[39m
+       [36m| fieldName     | value                 |[39m
+       [36m| First name    | Jane                  |[39m
+       [36m| Last name     | Preston               |[39m
+       [36m| Mobile number | 0489987890            |[39m
+       [36m| Email address | jane@jane.preston.com |[39m
+   [36m- And Click Submit application on about you then verify calls and capture basketId[39m # [90mfeatures/support/step_definitions/form_steps.js:120[39m
+   [36m- And You should be on the "confirmation" page for "Jane"[39m # [90mfeatures/support/step_definitions/page_steps.js:5[39m
+   [36m- And You should see the application number details text "Your application number is DEP{{applicationNumber}}"[39m # [90mfeatures/support/step_definitions/form_steps.js:155[39m
+   [36m- And You should see the text "We'll be touch soon to help finalise your application. If you have any questions, feel free to give us a call on 1800 801 485." in the application number section[39m # [90mfeatures/support/step_definitions/form_steps.js:162[39m
+   [36m- And You should see the "what happens next" section[39m # [90mfeatures/support/step_definitions/section_steps.js:10[39m
+   [32m✔ After[39m # [90mfeatures/support/hooks.js:19[39m
+
+1 scenario ([31m1 failed[39m)
+36 steps ([31m1 failed[39m, [36m28 skipped[39m, [32m7 passed[39m)
+0m04.361s

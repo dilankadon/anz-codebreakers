@@ -1,0 +1,86 @@
+<testsuites>
+    <testsuite name="smoke-tests;basic-e2e-smoke-test-for-box" tests="41" failures="0" errors="0" skipped="0" timestamp="Thu, 12 Jul 2018 07:09:00 GMT" time="3.2899999999999987">
+        <testcase name="Beforeundefined" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.012">
+        </testcase>
+        <testcase name="Given I land on the home page" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="2.022">
+        </testcase>
+        <testcase name="Then You should eventually see heading &quot;Before you start&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.003">
+        </testcase>
+        <testcase name="And You should see the &quot;before you start&quot; section" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.01">
+        </testcase>
+        <testcase name="And You should see the &quot;business setup&quot; section" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.005">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons for group &quot;Do you currently bank with ANZ?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.016">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with enabled states for group &quot;Do you currently bank with ANZ?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.028">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with selected states for group &quot;Do you currently bank with ANZ?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.021">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with enabled states for group &quot;How is your business structured?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.037">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with selected states for group &quot;How is your business structured?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.037">
+        </testcase>
+        <testcase name="And You should see &quot;What industry is your business in?&quot; field" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.003">
+        </testcase>
+        <testcase name="And You should see &quot;What industry is your business in?&quot; field enabled" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.011">
+        </testcase>
+        <testcase name="And You should not see an information note in the &quot;before you start&quot; section" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.005">
+        </testcase>
+        <testcase name="And You should see information note with with heading &quot;How will this help you?&quot; and body &quot;By understanding your industry and business structure, we can use our data to show you the types of products that similar businesses are using.&quot; in the &quot;business setup&quot; section" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.01">
+        </testcase>
+        <testcase name="And You should not see &quot;Please provide your primary account number&quot; field" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.01">
+        </testcase>
+        <testcase name="And You should not see &quot;Are you the only director or beneficial owner registered with this business?&quot; field" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.007">
+        </testcase>
+        <testcase name="When Click &quot;Yes&quot; radiobutton for fieldset group &quot;Do you currently bank with ANZ?&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.097">
+        </testcase>
+        <testcase name="And You should see &quot;Please provide your primary account number&quot; field" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.017">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with selected states for group &quot;Do you currently bank with ANZ?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.024">
+        </testcase>
+        <testcase name="And You should see information note with with heading &quot;Where to find your account number?&quot; and body &quot;You can find your ANZ account number on your latest ANZ account statement or in the documents provided when you opened your account.&quot; in the &quot;before you start&quot; section" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.008">
+        </testcase>
+        <testcase name="And Click the &quot;Next&quot; button" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.062">
+        </testcase>
+        <testcase name="And You should see page level validation text &quot;There are 3 errors in your form. Please review your answers to continue.&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.014">
+        </testcase>
+        <testcase name="And The &quot;Please provide your primary account number&quot; validation will be &quot;Please enter a valid account number.&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.011">
+        </testcase>
+        <testcase name="And The fieldset radiobutton group &quot;How is your business structured?&quot; validation will be &quot;Please provide a response.&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.009">
+        </testcase>
+        <testcase name="And The &quot;What industry is your business in?&quot; validation will be &quot;Please select an industry.&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.009">
+        </testcase>
+        <testcase name="And The fieldset radiobutton group &quot;Do you currently bank with ANZ?&quot; validation will be blank" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.008">
+        </testcase>
+        <testcase name="When Click &quot;No&quot; radiobutton for fieldset group &quot;Do you currently bank with ANZ?&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.063">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with selected states for group &quot;Do you currently bank with ANZ?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.034">
+        </testcase>
+        <testcase name="When Click &quot;Sole Trader&quot; radiobutton for fieldset group &quot;How is your business structured?&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.059">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with selected states for group &quot;How is your business structured?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.041">
+        </testcase>
+        <testcase name="And The fieldset radiobutton group &quot;How is your business structured?&quot; validation will be blank" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.005">
+        </testcase>
+        <testcase name="When Click &quot;Company&quot; radiobutton for fieldset group &quot;How is your business structured?&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.07">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons with selected states for group &quot;How is your business structured?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.047">
+        </testcase>
+        <testcase name="And You should see the following fieldset radiobuttons for group &quot;Are you the only director or beneficial owner registered with this business?&quot;:" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.015">
+        </testcase>
+        <testcase name="And The fieldset radiobutton group &quot;Are you the only director or beneficial owner registered with this business?&quot; validation will be &quot;Please provide a response.&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.008">
+        </testcase>
+        <testcase name="When Click &quot;Yes&quot; radiobutton for fieldset group &quot;Are you the only director or beneficial owner registered with this business?&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.036">
+        </testcase>
+        <testcase name="And Fill in &quot;What industry is your business in?&quot; input with &quot;Plant&quot;" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.119">
+        </testcase>
+        <testcase name="Then Click the &quot;first&quot; autocomplete selection for the &quot;What industry is your business in?&quot; field" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.072">
+        </testcase>
+        <testcase name="And You should see &quot;What industry is your business in?&quot; field disabled" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.02">
+        </testcase>
+        <testcase name="And Click the Next button and verify call to needsanalysis" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0.205">
+        </testcase>
+        <testcase name="Afterundefined" classname="smoke-tests;basic-e2e-smoke-test-for-box" time="0">
+        </testcase>
+    </testsuite>
+</testsuites>

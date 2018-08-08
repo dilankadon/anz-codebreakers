@@ -1,0 +1,32 @@
+{
+  "name": "e2e-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "cucumber": "cucumber",
+    "puppeteer:all": "./node_modules/cucumber/bin/cucumber-js -f json:features/output/results.json -f progress",
+    "puppeteer:smoke:run": "./node_modules/cucumber/bin/cucumber-js --tags=@run -f json:features/output/results.json -f progress",
+    "puppeteer:smoke:done": "./node_modules/cucumber/bin/cucumber-js --tags=@done features/smoke.feature -f json:features/output/results.json -f progress",
+    "puppeteer:smoke:done:sit": "NODE_ENV=sit ./node_modules/cucumber/bin/cucumber-js --tags=@done -f json:features/output/results.json -f progress",
+    "puppeteer:poc:done:sit": "NODE_ENV=sit ./node_modules/cucumber/bin/cucumber-js features/smoke.feature --tags=@done -f json:features/output/results.json -f progress",
+    "puppeteer:docker": "NODE_ENV=docker ./node_modules/cucumber/bin/cucumber-js --tags=@run -f json:features/output/results.json"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-shallow-deep-equal": "^1.4.6",
+    "cucumber": "^4.2.1",
+    "cucumber-html-reporter": "^4.0.3",
+    "cucumber-junit": "^1.7.1",
+    "cucumber-junit-reporter": "^0.0.1",
+    "cucumber-pretty": "^1.4.4",
+    "cucumberjs-junitxml": "^1.0.0",
+    "expect-puppeteer": "^3.2.0",
+    "fs": "^0.0.1-security",
+    "http": "0.0.0",
+    "http-proxy": "1.17.0",
+    "konfig": "^0.2.1",
+    "lodash": "^4.17.10",
+    "puppeteer": "1.5.0"
+  }
+}
