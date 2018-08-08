@@ -1,6 +1,5 @@
 const { BeforeAll, AfterAll, Before, After} = require('cucumber')
 const scope = require('./scope')
-const reporters = require('./reporter')
 const constants = require('./constants')
 
 BeforeAll(async () => {

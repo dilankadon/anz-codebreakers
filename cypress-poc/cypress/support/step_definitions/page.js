@@ -3,10 +3,8 @@ const _ = require('lodash')
 const chai = require('chai')
 chai.use(require('chai-shallow-deep-equal'))
 
-const common = require('./common')
 const sectionHelper = require('./section')
 const pageHelper = require('./pages')
-const iconHelper = require('./icons')
 const $ = Cypress.$
 
 
@@ -30,76 +28,13 @@ then(`You should eventually see heading {string}`, heading => {
   cy.get('h1').contains(heading).should('contain', heading)
 })
 
-then(`Click {string} radiobutton for fieldset group {string}`, (buttonName, group) => {
-  cy.get('fieldset').contains(group).parent().within(() => {
-    cy.get('label').contains(buttonName).siblings('input[type="radio"]').click({force:true})
-  })
-})
+then(/^You should be on the "([^"]*)?" page$/, (pageName) => {
+  pageHelper.checkIsOnPage(pageName)
+});
 
 then(`Fill in {string} input with {string}`, (fieldName, value) => {
   cy.get('label').contains(fieldName).parent('div').within(() => {
     cy.get('input[type="text"]').type(value, {force:true})
-  })
-})
-
-then(`Click the {string} autocomplete selection for the {string} field`, (indexText, fieldName) => {
-  let index = common.convertIndexTextToIndex(indexText)
-  cy.get('label').contains(fieldName).parent('div').siblings('ul[role="listbox"]').within(() => {
-    cy.get('li').eq(index).click()
-  })
-})
-
-then(`You should see the following fieldset radiobuttons for group {string}:`, (group, dataTable) => {
-      // expect dataTable with the following format:
-      // | radiobuttonName  |
-      // | button1          |
-  let fields = dataTable.hashes()
-  fields.forEach(function (row) {
-    cy.get('fieldset').contains(group).parent().within(() => {
-      cy.get('label').contains(row.radiobuttonName).should('have.text', row.radiobuttonName)
-    })
-  })
-})
-
-then(`You should see the following fieldset radiobuttons with enabled states for group {string}:`, (group, dataTable) => {
-  // expect dataTable with the following format:
-  // | radiobuttonName  | enabled    |
-  // | button1          | true/false |
-  let toggle
-  let fields = dataTable.hashes()
-  fields.forEach(function (row) {
-    toggle = row.enabled === 'true'
-      if(toggle) {
-        cy.get('fieldset').contains(group).parent().within(() => {
-          cy.get('label').contains(row.radiobuttonName).siblings('input[type="radio"]')
-          .should('be.enabled')
-        })
-      } else {
-        cy.get('fieldset').contains(group).parent().within(() => {
-          cy.get('label').contains(row.radiobuttonName).siblings('input[type="radio"]')
-          .should('be.disabled')
-        })
-      }
-  })
-})
-
-then(`You should see the following fieldset radiobuttons with selected states for group {string}:`, (group, dataTable) => {
-  // expect dataTable with the following format:
-  // | radiobuttonName  | selected   |
-  // | button1          | true/false |
-  let toggle
-  let fields = dataTable.hashes()
-  fields.forEach(function (row) {
-    cy.get('fieldset').contains(group).parent().within(()=> {
-      cy.get('label').contains(row.radiobuttonName).siblings('input[type="radio"]').then(($radiobutton) => {
-        toggle = row.selected === 'true'
-        if (toggle) { 
-            cy.wrap($radiobutton).should('be.checked')
-          } else { 
-            cy.wrap($radiobutton).should('not.be.checked')
-          }
-        })
-      })
   })
 })
 
@@ -167,63 +102,36 @@ then(`The {string} validation will be blank`, fieldName => {
   })
 })
 
-then(/You should see "(\d+)" challenges? displayed/, numOfNeeds => {
-  cy.get('[data-test-id$="-section"]').its('length').should('equal', numOfNeeds)
+then(/You should see "(\d+)" challenges? displayed/, numOfChallenges => {
+  cy.get('[data-test-id$="-section"]').its('length').should('equal', numOfChallenges)
 })
 
-then(`You should see heading {string} for challenge {int}`, (heading, needNum) => {
-  let needIndex = needNum - 1
-  cy.get('[data-test-id$="-section"]').eq(needIndex).within(() => {
+then(`You should see heading {string} for challenge {int}`, (heading, challengeNum) => {
+  let challengeIndex = challengeNum - 1
+  cy.get('[data-test-id$="-section"]').eq(challengeIndex).within(() => {
     cy.get('h2').should('contain', heading)
   })
 })
 
-then(`You should see body text {string} for challenge {int}`, (bodyText, needNum) => {
-  let needIndex = needNum - 1
-  cy.get('[data-test-id$="-section"]').eq(needIndex).within(() => {
+then(`You should see body text {string} for challenge {int}`, (bodyText, challengeNum) => {
+  let challengeIndex = challengeNum - 1
+  cy.get('[data-test-id$="-section"]').eq(challengeIndex).within(() => {
     cy.get('p').should('have.text', bodyText)
   })
 })
 
-then(`You should see a button link {string} for challenge {int}`, (buttonLink, needNum) => {
-  let needIndex = needNum - 1
-  cy.log(needIndex)
-  cy.get('[data-test-id$="-section"]').eq(needIndex).within(() => {
+then(`You should see a button link {string} for challenge {int}`, (buttonLink, challengeNum) => {
+  let challengeIndex = challengeNum - 1
+  cy.log(challengeIndex)
+  cy.get('[data-test-id$="-section"]').eq(challengeIndex).within(() => {
     cy.get('button').should('have.text', buttonLink);
   })
 })
 
-
-then(`Click the button link {string} for challenge {int}`, (buttonLink, needNum) => {
-  let needIndex = needNum - 1
-  cy.get('[data-test-id$="-section"]').eq(needIndex).within(() => {
+then(`Click the button link {string} for challenge {int}`, (buttonLink, challengeNum) => {
+  let challengeIndex = challengeNum - 1
+  cy.get('[data-test-id$="-section"]').eq(challengeIndex).within(() => {
     cy.contains(buttonLink).click()
-  })
-})
-
-
-then(/You should see "(\d+)" selected products? displayed/, numOfProducts => {
-  cy.get('[data-test-id="selected_product_box"]').its('length').should('equal', numOfProducts)
-})
-
-then(`You should see {string} as product name for selected product {int}`, (needName, needNum) => {
-  let needIndex = needNum - 1
-  cy.get('[data-test-id="selected_product_box"]').eq(needIndex).within(() => {
-    cy.get('p[class^="styles__Product-"]').should('have.text', needName)
-  })
-})
-
-then(`You should see {string} as the cost for selected product {int}`, (needCost, needNum) => {
-  let needIndex = needNum - 1
-  cy.get('[data-test-id="selected_product_box"]').eq(needIndex).within(() => {
-    cy.get('[data-test-id="cost"]').should('have.text', needCost)
-  })
-})
-
-then(`You should see a remove button for selected product {int}`, (needNum) => {
-  let needIndex = needNum - 1
-  cy.get('[data-test-id="selected_product_box"]').eq(needIndex).within(() => {
-    cy.get('button').contains('Remove').should('be.visible')
   })
 })
 

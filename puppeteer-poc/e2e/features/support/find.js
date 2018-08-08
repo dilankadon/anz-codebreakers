@@ -80,7 +80,6 @@ async function autocompleteResultsListWithLabel(page, listIndexValue, label) {
   const matchingAutocompleteListItemsElement = await matchingAutocompleteParentElements[0].$$('[data-test-id="autocomplete-industry-results"] li')
 
   return await matchingAutocompleteListItemsElement[listIndex]
-  // console.log('here')
 }
 
 module.exports = {

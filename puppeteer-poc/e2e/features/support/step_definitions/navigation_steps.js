@@ -2,19 +2,6 @@ const { When, Then } = require('cucumber')
 const scope = require('../scope')
 const expect = require('expect-puppeteer')
 
-When(
-  /^I click the (ANZ Logo|Home|Customer Summary|Search|Comments|Documents) icon on the navigation bar$/,
-  async iconName => {
-    const { page } = scope
-
-    const icon = await page.waitForSelector(
-      '.navbar-csp [data-test=' + iconName.toLowerCase().split(' ').join('-') + ']',
-      { visible: true }
-    )
-    await icon.click()
-  }
-)
-
 Then(/^the page heading "([^"]*)" is displayed$/, async expectedHeading => {
   await scope.page.waitForFunction(
     `document.querySelector("[data-test-id="hero-banner-title"]").innerText === "${expectedHeading}"`, {timeout: 2000}

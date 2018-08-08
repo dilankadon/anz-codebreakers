@@ -1,5 +1,4 @@
 const _ = Cypress._
-// const _ = require('lodash')
 const path = require('path')
 const fso = require('fs')
 
@@ -41,13 +40,9 @@ function getFieldLabels() {
 
 function findMatchingLabel(labelName) {
     let labels = getFieldLabels()
-    cy.log(labels)
-    cy.log(labelName)
     let result = _.filter(labels, (label) => {
-        cy.log('2: ' + label)
         return label == labelName
     })
-    cy.log('here: ' + result)
     return !(_.isUndefined(_.find(labels, labelName)))
 }
 
