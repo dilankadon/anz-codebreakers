@@ -31,7 +31,7 @@ Before(async () => {
 })
 
 After(async() => {
-  await scope.page.screenshot({ path: 'test.png', fullPage: true })
+  await scope.page.screenshot({ path: 'screenshots/test.png', fullPage: true })
   // close the current page at end of scenario - to ensure fresh page is loaded each time
   await scope.page.close()
 })

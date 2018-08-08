@@ -8,6 +8,7 @@
     "puppeteer:all": "./node_modules/cucumber/bin/cucumber-js -f json:features/output/results.json -f progress",
     "puppeteer:smoke:run": "./node_modules/cucumber/bin/cucumber-js --tags=@run -f json:features/output/results.json -f progress",
     "puppeteer:smoke:done": "./node_modules/cucumber/bin/cucumber-js --tags=@done features/smoke.feature -f json:features/output/results.json -f progress",
+    "puppeteer:smoke:headless:done": "NODE_ENV=headless ./node_modules/cucumber/bin/cucumber-js --tags=@done features/smoke.feature -f json:features/output/results.json -f progress",
     "puppeteer:smoke:done:sit": "NODE_ENV=sit ./node_modules/cucumber/bin/cucumber-js --tags=@done -f json:features/output/results.json -f progress",
     "puppeteer:poc:done:sit": "NODE_ENV=sit ./node_modules/cucumber/bin/cucumber-js features/smoke.feature --tags=@done -f json:features/output/results.json -f progress",
     "puppeteer:docker": "NODE_ENV=docker ./node_modules/cucumber/bin/cucumber-js --tags=@run -f json:features/output/results.json"

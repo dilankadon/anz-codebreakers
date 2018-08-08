@@ -9,8 +9,8 @@
     "cypress:open": "cypress open",
     "cypress:open:sit": "cypress open --env configFile=sit",
     "cypress:debug": "DEBUG=cypress:* cypress open",
-    "cypress:run:smoke": "cypress run --spec 'cypress/integration/current.feature'",
-    "cypress:run:smoke:docker": "cypress run --spec 'cypress/integration/current.feature' --env configFile=docker"
+    "cypress:run": "cypress run --spec 'cypress/integration/current.feature'",
+    "cypress:run:docker": "cypress run --spec 'cypress/integration/current.feature' --env configFile=docker"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/support/step_definitions/"

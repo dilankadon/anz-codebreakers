@@ -6,6 +6,9 @@
     "featureFiles": "../features/**/**/*.feature",
     "stepDefinitionsPath": "../features/support/step_definitions/**/**/*.js"
   },
+  "headless": {
+    "headlessMode": true
+  },
   "docker": {
     "baseUrl": "http://host.docker.internal:3000/",
     "headlessMode": true
