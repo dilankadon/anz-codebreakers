@@ -107,53 +107,6 @@ then(`Click the {string} button`, buttonName => {
   cy.get('button').contains(buttonName).click({ waitForAnimations: false, force:true})
 })
 
-then(`Click the Next button and verify call to needsanalysis`, () => {
-  cy.server({
-    onAnyRequest: function (route, proxy) {
-      proxy.xhr.setRequestHeader('content-type', 'application/json;charset=utf8')
-    }
-  })
-  cy.route('POST', '/api/needsanalysis/assessments').as('postAssessments')
-  cy.get('button').contains('Next').click({force:true})
-  // cy.wait('@postAssessments').then((res) => {
-  //   cy.log(JSON.stringify(res.request.body))
-  //   cy.log(JSON.stringify(res.response))
-  // })
-  // cy.wait('@postAssessments')
-  // .its('response.body').then((res) => {
-  //   cy.log(JSON.stringify(res))
-  // })
-  cy.wait('@postAssessments')
-  cy.get('@postAssessments').should((xhr) => {
-    expect(xhr.status).to.equal(201)
-    cy.log(JSON.stringify(xhr))
-    cy.log(JSON.stringify(xhr.responseBody))
-    assessmentId = xhr.responseBody['_id']
-    cy.log(assessmentId)
-    Cypress.assessmentId = assessmentId
-    cy.assessmentId = assessmentId
-  })
-})
-
-then(/^You should be on the "([^"]*)?" page( for "([^"]*)?")?$/, (pageName, firstName) => {
-  pageHelper.checkIsOnPage(pageName, firstName)
-});
-
-then(`The assessmentId is saved`, () => {
-  cy.log('assessmentId: ' + eval(assessmentId))
-  cy.log('Cypress.assessmentId: ' + Cypress.assessmentId)
-  cy.log('cy.assessmentId: ' + cy.assessmentId)
-  cy.get('@postAssessments').should((xhr) => {
-    expect(xhr.status).to.equal(201)
-    cy.log(JSON.stringify(xhr))
-    cy.log(JSON.stringify(xhr.responseBody))
-    assessmentId = xhr.responseBody['_id']
-    cy.log(assessmentId)
-    Cypress.assessmentId = assessmentId
-    cy.assessmentId = assessmentId
-  })
-})
-
 then(`You should not see an information note in the {string} section`,
   (sectionName) => {
     let sectionMatch = sectionHelper.getSection(sectionName)
