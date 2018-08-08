@@ -1,0 +1,6 @@
+{
+  "env": {
+    "name": "docker",
+    "baseUrl": "http://host.docker.internal:3000/"
+  }
+}

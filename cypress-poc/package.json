@@ -1,0 +1,27 @@
+{
+  "name": "cypress-poc",
+  "version": "1.0.0",
+  "description": "cypress POC",
+  "author": "@csp-anz",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:open:sit": "cypress open --env configFile=sit",
+    "cypress:debug": "DEBUG=cypress:* cypress open",
+    "cypress:run:smoke": "cypress run --spec 'cypress/integration/current.feature'",
+    "cypress:run:smoke:docker": "cypress run --spec 'cypress/integration/current.feature' --env configFile=docker"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/step_definitions/"
+  },
+  "dependencies": {
+    "chai-shallow-deep-equal": "^1.4.6",
+    "cypress": "^3.0.3",
+    "cypress-cucumber-preprocessor": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^7.0.0",
+    "lodash": "^4.17.10",
+    "path": "^0.12.7"
+  }
+}
